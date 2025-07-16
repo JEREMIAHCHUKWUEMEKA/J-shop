@@ -1,6 +1,4 @@
-// src/pages/OrderSummaryPage.tsx
-
-import  { useContext } from 'react'; // Keep React import if using React.Fragment or similar
+import  { useContext } from 'react'; 
 import { Box, Typography, Button, Divider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../assets/components/CartContext';
@@ -9,7 +7,6 @@ export default function OrderSummaryPage() {
   const { cartTotal, cart } = useContext(CartContext);
   const navigate = useNavigate();
 
-  // REMOVED: The useEffect hook for redirection is removed as per your request.
   // React.useEffect(() => {
   //   if (cart.length === 0) {
   //     navigate('/cart');
@@ -24,7 +21,6 @@ export default function OrderSummaryPage() {
     navigate('/cart');
   };
 
-  // Optional: Display a message if cart is empty, even if direct access is allowed
   if (cart.length === 0) {
     return (
       <Box sx={{ p: 4, maxWidth: 600, mx: 'auto', minHeight: '80vh', textAlign: 'center' }}>
@@ -57,7 +53,6 @@ export default function OrderSummaryPage() {
         </Typography>
         <Divider sx={{ my: 2 }} />
 
-        {/* List of items in summary */}
         {cart.map(item => (
           <Box key={item.id} sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
             <Typography variant="body1">{item.name} (x{item.quantity})</Typography>
@@ -87,7 +82,7 @@ export default function OrderSummaryPage() {
           size="large"
           fullWidth
           onClick={handleProceedToPayment}
-          disabled={cart.length === 0} // Keep disabled if cart is empty
+          disabled={cart.length === 0} 
           sx={{ mt: 3, py: 1.5,backgroundColor:"black" }}
         >
           Proceed to Payment

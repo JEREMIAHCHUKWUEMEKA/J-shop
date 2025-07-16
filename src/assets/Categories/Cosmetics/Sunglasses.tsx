@@ -105,7 +105,7 @@ export default function Sunglasses() {
   return (
     <Box p={4}>
       <Typography variant="h4" gutterBottom>
-        Food
+        Sunglasses
       </Typography>
 
       {error ? (

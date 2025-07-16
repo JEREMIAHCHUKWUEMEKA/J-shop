@@ -105,7 +105,7 @@ export default function GirlsDresses() {
   return (
     <Box p={4}>
       <Typography variant="h4" gutterBottom>
-        Food
+        Girls Clothes
       </Typography>
 
       {error ? (

@@ -7,7 +7,7 @@ import {
   Box,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { styled } from '@mui/material/styles'; // Import styled
+import { styled } from '@mui/material/styles'; 
 
 const AppBarOffset = styled('div')(({ theme }) => theme.mixins.toolbar);
 

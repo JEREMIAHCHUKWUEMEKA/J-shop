@@ -1,36 +1,28 @@
-// src/assets/Categories/Food.tsx
-
 import { useEffect, useState } from 'react';
 import {
   Box,
   Typography,
   Pagination,
-  // CircularProgress, // Import CircularProgress for loading indicator
-  Alert // Import Alert for error display
+  // CircularProgress, 
+  Alert 
 } from '@mui/material';
 import ProductCard from '../components/ProductCard';
 import ProductCardSkeleton from '../components/ProductCardSkeleton';
-
-// Define the shape of the product coming directly from DummyJSON's API
 interface DummyJsonProduct {
-  id: number; // DummyJSON provides 'id' as a number
+  id: number; 
   title: string;
-  price: number; // DummyJSON price is a number
+  price: number; 
   thumbnail: string;
-  // Add other properties from DummyJSON if you use them elsewhere
-}
 
-// Define the shape of the product that ProductCard expects as its 'product' prop
-// This should match the ApiProduct interface in ProductCard.tsx
+}
 interface ProductCardExpectedProduct {
-  id: string;   // ProductCard expects ID as string (after our custom unique ID generation)
-  name: string; // ProductCard expects 'name'
-  price: string; // ProductCard expects 'price' as a string (e.g., "$12.99")
-  image: string; // ProductCard expects 'image'
+  id: string; 
+  name: string; 
+  price: string; 
+  image: string; 
 }
 
 export default function Furniture() {
-  // State now holds formatted products that match ProductCard's expectations
   const [products, setProducts] = useState<ProductCardExpectedProduct[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -58,7 +50,7 @@ export default function Furniture() {
         }
 
         const data = await response.json();
-        const baseFurnitureItems: DummyJsonProduct[] = data.products; // Cast to the DummyJsonProduct type
+        const baseFurnitureItems: DummyJsonProduct[] = data.products; 
 
         if (!baseFurnitureItems || baseFurnitureItems.length === 0) {
           setError("No Furniture items found.");
@@ -66,7 +58,7 @@ export default function Furniture() {
           return;
         }
 
-        let duplicatedItems: ProductCardExpectedProduct[] = []; // Array to store formatted products
+        let duplicatedItems: ProductCardExpectedProduct[] = []; 
         let currentCount = 0;
         let uniqueIdCounter = 0;
 
@@ -74,12 +66,11 @@ export default function Furniture() {
           for (const item of baseFurnitureItems) {
             if (currentCount >= TARGET_ITEM_COUNT) break;
 
-            // **Crucial Step:** Format the item to match the ProductCardExpectedProduct interface
             duplicatedItems.push({
-              id: `dup-${item.id}-${uniqueIdCounter++}`, // Create a unique string ID
-              name: item.title,                           // Map DummyJSON's 'title' to 'name'
-              price: `$${item.price.toFixed(2)}`,         // Format numeric price back to string with '$'
-              image: item.thumbnail,                      // Map DummyJSON's 'thumbnail' to 'image'
+              id: `dup-${item.id}-${uniqueIdCounter++}`, 
+              name: item.title,                          
+              price: `$${item.price.toFixed(2)}`,        
+              image: item.thumbnail,                     
             });
             currentCount++;
           }
@@ -110,11 +101,11 @@ export default function Furniture() {
   return (
     <Box p={4}>
       <Typography variant="h4" gutterBottom>
-        Food
+        Furniture
       </Typography>
 
       {error ? (
-        <Alert severity="error">{error}</Alert> // Use Alert for a better error display
+        <Alert severity="error">{error}</Alert>
       ) : (
         <Box
           sx={{
@@ -130,13 +121,12 @@ export default function Furniture() {
         >
           {loading
             ? Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
-                <Box key={index}> {/* Keep Box wrapper for skeletons */}
+                <Box key={index}>
                   <ProductCardSkeleton />
                 </Box>
               ))
             : paginatedProducts.map((product) => (
                 <Box key={product.id}>
-                  {/* Pass the entire 'product' object as a single prop */}
                   <ProductCard product={product} />
                 </Box>
               ))}

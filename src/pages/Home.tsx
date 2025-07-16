@@ -1,4 +1,3 @@
-// src/pages/Home.tsx
 import { Box, Typography, Button, Tooltip, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { FaTshirt, FaUtensils, FaCouch, FaHeart, FaBolt, FaGem, FaTv } from 'react-icons/fa';
@@ -115,7 +114,6 @@ export default function Home() {
           );
         })}
 
-        {/* Center Circle */}
         <Box
           sx={{
             position: 'absolute',

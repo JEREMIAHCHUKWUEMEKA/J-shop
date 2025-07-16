@@ -1,6 +1,4 @@
-// src/pages/PaymentPage.tsx
-
-import React, { useState, useContext } from 'react'; // Keep React import if using React.Fragment or similar
+import React, { useState, useContext } from 'react'; 
 import {
   useStripe,
   useElements,
@@ -20,11 +18,10 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../assets/components/CartContext';
 
-// IMPORTANT: Replace with your actual Stripe PUBLISHABLE key (starts with pk_test_...)
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY!);
 
 interface CheckoutFormProps {
-  amount: number; // This prop is still passed from the <Elements> wrapper
+  amount: number;
 }
 
 const CheckoutForm: React.FC<CheckoutFormProps> = ({ amount }) => {
@@ -40,7 +37,6 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ amount }) => {
   const [paymentStatus, setPaymentStatus] = useState<'success' | 'error' | null>(null);
   const [paymentMessage, setPaymentMessage] = useState('');
 
-  // REMOVED: The useEffect hook for redirection is removed as per your request.
   // React.useEffect(() => {
   //   if (cartTotal <= 0) { // Using cartTotal directly from context
   //     navigate('/cart');
@@ -54,12 +50,10 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ amount }) => {
     setFormError(null);
     setPaymentStatus(null);
 
-    // Add a check for cartTotal here, as the useEffect redirect is removed
     if (cartTotal <= 0) {
         setLoading(false);
         setPaymentStatus('error');
         setPaymentMessage('Cannot proceed with payment: Cart is empty or total is zero.');
-        // Optionally navigate back to cart
         setTimeout(() => navigate('/cart'), 1500);
         return;
     }

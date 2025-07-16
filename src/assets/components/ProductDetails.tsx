@@ -84,6 +84,7 @@ export default function ProductDetails() {
           <Typography variant="body1" paragraph>
           There are actually no details available here, i am just trying my best to impliment so many components, so my website is going to look good.
           If you are a backend-developer, please be creating open free endpoints for e-shops with a minimum of 50 items.I had to duplicate the ones here so they could reach 100 and make the pages look better.
+          Thank you in advance.
           </Typography>
 
           <Stack direction="row" alignItems="center" spacing={2} mt={2}>

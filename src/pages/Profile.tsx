@@ -1,4 +1,3 @@
-// src/pages/Profile.tsx
 import {
     Box, Typography, Avatar, TextField, Button, Divider,  CircularProgress
   } from '@mui/material';
@@ -98,8 +97,7 @@ import {
     return (
       <Box p={4} maxWidth={800} mx="auto">
         <Typography variant="h4" mb={3}>My Profile</Typography>
-  
-        {/* Profile Picture and Upload */}
+
         <Box display="flex" alignItems="center" gap={2} mb={3}>
           <Avatar src={photoURL || undefined} sx={{ width: 80, height: 80 }} />
           <Button variant="outlined" component="label">
@@ -161,7 +159,6 @@ import {
   
         <Divider sx={{ my: 4 }} />
   
-        {/* Password Change */}
         <Typography variant="h6" gutterBottom>Change Password</Typography>
         <TextField
           label="Current Password"

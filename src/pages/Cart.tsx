@@ -1,5 +1,3 @@
-// src/pages/Cart.tsx
-
 import { useState, useContext } from 'react';
 import {
   Box,
@@ -7,26 +5,22 @@ import {
   Button,
   Alert,
   Snackbar,
-  Divider, // Keep Divider if you want to separate cart items from action buttons
+  Divider,
 } from '@mui/material';
 import CartItem from '../assets/components/CartItem';
 import { CartContext } from '../assets/components/CartContext';
 import { useNavigate } from 'react-router-dom';
 
-// REMOVED: No longer importing PaymentForm here, as it's a separate page
-// import PaymentForm from './PaymentForm'; // This import is no longer needed
-
 export default function CartPage() {
-  const { cart, clearCart,  } = useContext(CartContext); // Keep cartTotal for disabling buttons
+  const { cart, clearCart,  } = useContext(CartContext); 
   const navigate = useNavigate();
 
-  // States for Snackbar feedback (kept for "cart empty" message only)
   const [feedbackStatus, setFeedbackStatus] = useState<'success' | 'error' | null>(null);
   const [feedbackMessage, setFeedbackMessage] = useState('');
 
   const handleProceedToOrderSummary = () => {
     if (cart.length > 0) {
-      navigate('/checkout/summary'); // Navigate to the Order Summary page
+      navigate('/checkout/summary'); 
     } else {
       setFeedbackStatus('error');
       setFeedbackMessage('Your cart is empty. Please add items before proceeding.');
@@ -44,7 +38,6 @@ export default function CartPage() {
         Your Shopping Cart
       </Typography>
 
-      {/* Conditional rendering for empty cart */}
       {cart.length === 0 ? (
         <Typography variant="body1" sx={{ mt: 2, color: 'text.secondary' }}>
           Your cart is empty. Start adding some awesome products!
@@ -54,7 +47,6 @@ export default function CartPage() {
           sx={{
             display: 'grid',
             gap: 3,
-            // Only one main column for cart items, as summary is a separate page
             gridTemplateColumns: {
               xs: '1fr',
               md: '1fr',
@@ -62,23 +54,20 @@ export default function CartPage() {
             alignItems: 'start',
           }}
         >
-          {/* Main Content Area for Cart Items */}
           <Box>
             {cart.map((item) => (
               <CartItem key={item.id} item={item} />
             ))}
 
-            <Divider sx={{ my: 3 }} /> {/* Separator before action buttons */}
-
-            {/* Action Buttons for Cart Page */}
+            <Divider sx={{ my: 3 }} />
             <Box sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center', // Center buttons horizontally
-              gap: 2, // Spacing between buttons
-              maxWidth: 400, // Constrain width of buttons
-              mx: 'auto', // Center the button container
-              mt: 3, // Margin top to separate from cart items
+              alignItems: 'center', 
+              gap: 2, 
+              maxWidth: 400, 
+              mx: 'auto', 
+              mt: 3,
             }}>
               <Button
                 variant="contained"
@@ -105,7 +94,6 @@ export default function CartPage() {
         </Box>
       )}
 
-      {/* Snackbar for "cart empty" feedback */}
       <Snackbar
         open={feedbackStatus !== null}
         autoHideDuration={6000}

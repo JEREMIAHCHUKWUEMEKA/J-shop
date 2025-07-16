@@ -105,7 +105,7 @@ export default function Fragrances() {
   return (
     <Box p={4}>
       <Typography variant="h4" gutterBottom>
-        Food
+        Fragrances
       </Typography>
 
       {error ? (

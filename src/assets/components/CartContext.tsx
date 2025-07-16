@@ -74,7 +74,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const updateQuantity = (id: string, newQuantity: number) => {
     setCart(prev =>
       prev.map(item =>
-        item.id === id ? { ...item, quantity: Math.max(1, newQuantity) } : item // Quantity must be at least 1
+        item.id === id ? { ...item, quantity: Math.max(1, newQuantity) } : item 
       )
     );
   };

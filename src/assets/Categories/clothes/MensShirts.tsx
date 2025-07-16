@@ -105,7 +105,7 @@ export default function MensShirts() {
   return (
     <Box p={4}>
       <Typography variant="h4" gutterBottom>
-        Food
+        Men Shirt
       </Typography>
 
       {error ? (

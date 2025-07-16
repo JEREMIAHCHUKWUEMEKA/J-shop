@@ -30,7 +30,6 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
       }}
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        {/* Left: Menu icon and title */}
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <IconButton edge="start" color="inherit" onClick={onMenuClick} sx={{ mr: 2 }}>
             <MenuIcon />
@@ -40,7 +39,6 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
           </Typography>
         </Box>
 
-        {/* Right: Cart icon */}
         <IconButton color="inherit" onClick={() => navigate('/cart')}>
           <Badge badgeContent={cart.length} color="secondary">
             <ShoppingCartIcon />
