@@ -58,7 +58,7 @@ const Main = styled('main', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    marginLeft: `${drawerWidth}`,
+    marginLeft:'.5rem',
   }),
 }));
 

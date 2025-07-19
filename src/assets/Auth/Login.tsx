@@ -33,7 +33,7 @@ export default function Login() {
       justifyContent="center"
       bgcolor="linear-gradient(135deg, #f5f7fa, #c3cfe2)"
     >
-      <Paper elevation={3} sx={{ p: 4, width: 400 }}>
+      <Paper elevation={3} sx={{ p: 4, width: 400, marginLeft:"10rem"}}>
         <Typography variant="h5" mb={3} align="center">
           Login
         </Typography>

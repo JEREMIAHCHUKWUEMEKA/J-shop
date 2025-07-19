@@ -28,7 +28,7 @@ export default function ForgotPassword() {
       justifyContent="center"
       bgcolor="#f4f6f8"
     >
-      <Paper elevation={3} sx={{ p: 4, width: 400 }}>
+      <Paper elevation={3} sx={{ p: 4, width: 400, marginLeft:"10rem" }}>
         <Typography variant="h5" mb={3} align="center">
           Forgot Password
         </Typography>
