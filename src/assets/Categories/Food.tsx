@@ -100,7 +100,10 @@ export default function Food() {
 
   return (
     <Box p={4}
-    sx={{backgroundColor:"#fafafa"}}>
+    sx={{backgroundColor:"#fafafa",
+      alignItems:'center',
+      marginLeft:'2rem'
+    }}>
       <Typography variant="h4" gutterBottom>
         Food
       </Typography>
